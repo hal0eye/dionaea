@@ -15,6 +15,6 @@ The `supervisord.conf` is used to start dionaea under supervision of supervisord
 
 Using upstart, copy the `upstart/dionaea.conf` to `/etc/init/dionaea.conf` and start using
 
-    service start dionaea
+    service dionaea start
 
 This will make sure that the docker container is started with the appropriate rights and port mappings. Further, it autostarts during boot.
