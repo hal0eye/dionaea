@@ -1,7 +1,7 @@
 # dionaea dockerfile by MO 
 #
-# VERSION 0.41
-FROM ubuntu:14.04.2
+# VERSION 0.42
+FROM ubuntu:14.04.3
 MAINTAINER MO
 
 # Setup apt
