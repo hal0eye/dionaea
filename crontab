@@ -1,0 +1,4 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+*/2 * * * * root cd /opt/ewsposter/; /usr/bin/python ews.py -c /data/ews/conf/

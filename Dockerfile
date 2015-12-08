@@ -1,4 +1,4 @@
-# dionaea dockerfile by MO 
+# dionaea dockerfile by MO
 #
 # VERSION 0.42
 FROM ubuntu:14.04.3
@@ -12,18 +12,21 @@ RUN apt-get update -y
 RUN apt-get dist-upgrade -y
 ENV DEBIAN_FRONTEND noninteractive
 
-# Install packages 
-RUN apt-get install -y supervisor dionaea-phibo
+# Install packages
+RUN apt-get install -y supervisor dionaea-phibo python-lxml python-mysqldb python-requests git
+RUN git clone https://github.com/rep/hpfeeds.git /opt/hpfeeds && cd /opt/hpfeeds && python setup.py install && \
+git clone https://github.com/armedpot/ewsposter.git /opt/ewsposter 
 
 # Setup user, groups and configs
-RUN addgroup --gid 2000 tpot 
+RUN addgroup --gid 2000 tpot
 RUN adduser --system --no-create-home --shell /bin/bash --uid 2000 --disabled-password --disabled-login --gid 2000 tpot
-RUN mkdir -p /data/dionaea/log /data/dionaea/bistreams /data/dionaea/binaries /data/dionaea/rtp /data/dionaea/wwwroot
+RUN mkdir -p /data/dionaea/log /data/dionaea/bistreams /data/dionaea/binaries /data/dionaea/rtp /data/dionaea/wwwroot /opt/ewsposter/spool /opt/ewsposter/log
 RUN chmod 760 -R /data && chown tpot:tpot -R /data
 ADD dionaea.conf /etc/dionaea/
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD crontab /etc/
 
-# Clean up 
+# Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Start dionaea
