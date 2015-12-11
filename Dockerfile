@@ -1,6 +1,6 @@
 # dionaea dockerfile by MO
 #
-# VERSION 0.42
+# VERSION 16.03.1
 FROM ubuntu:14.04.3
 MAINTAINER MO
 
