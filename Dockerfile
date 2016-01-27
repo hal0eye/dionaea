@@ -9,10 +9,10 @@ RUN apt-get update -y
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install dependencies and packages
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository ppa:honeynet/nightly
-RUN apt-get update
-RUN apt-get install -y supervisor dionaea
+RUN apt-get install -y software-properties-common && \
+    add-apt-repository ppa:honeynet/nightly && \
+    apt-get update && \
+    apt-get install -y supervisor dionaea
 
 # Setup user, groups and configs
 RUN addgroup --gid 2000 tpot && \
