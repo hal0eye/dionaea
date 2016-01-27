@@ -5,15 +5,14 @@ FROM ubuntu:14.04.3
 MAINTAINER MO
 
 # Setup apt
-RUN echo "deb http://ppa.launchpad.net/honeynet/nightly/ubuntu trusty main" >> /etc/apt/sources.list && \
-    echo "deb-src http://ppa.launchpad.net/honeynet/nightly/ubuntu trusty main" >> /etc/apt/sources.list && \
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys FC8C70BBE667E4FB0F42916511C832A6A6131AE4 && \
-    apt-get update -y && \
-    apt-get dist-upgrade -y
+RUN apt-get update -y 
 ENV DEBIAN_FRONTEND noninteractive
 
-# Install packages
-RUN apt-get install -y supervisor dionaea-phibo
+# Install dependencies and packages
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository ppa:honeynet/nightly
+RUN apt-get update
+RUN apt-get install -y supervisor dionaea
 
 # Setup user, groups and configs
 RUN addgroup --gid 2000 tpot && \
