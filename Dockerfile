@@ -1,7 +1,7 @@
 # dionaea dockerfile by MO
 #
-# VERSION 16.03.2
-FROM ubuntu:14.04.3
+# VERSION 16.03.3
+FROM ubuntu:14.04.4
 MAINTAINER MO
 
 # Setup apt
@@ -30,4 +30,5 @@ RUN apt-get install -y python-lxml python-mysqldb python-requests git && \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Start dionaea
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
+

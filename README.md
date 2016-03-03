@@ -18,3 +18,7 @@ Using upstart, copy the `upstart/dionaea.conf` to `/etc/init/dionaea.conf` and s
     service dionaea start
 
 This will make sure that the docker container is started with the appropriate rights and port mappings. Further, it autostarts during boot.
+
+# Dionaea Dashboard
+
+![Dionaea Dashboard](doc/dashboard.png)
