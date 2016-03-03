@@ -21,4 +21,4 @@ This will make sure that the docker container is started with the appropriate ri
 
 # Dionaea Dashboard
 
-![Dionaea Dashboard](doc/dashboard.png)
+![Dionaea Dashboard](https://raw.githubusercontent.com/dtag-dev-sec/dionaea/master/doc/dashboard.png)
