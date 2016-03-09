@@ -1,7 +1,7 @@
 # dockerized dionaea
 
 
-[dionaea](http://dionaea.carnivore.it/) is low interaction honeypot with focus on capturing malware.
+[dionaea](https://github.com/DinoTools/dionaea) is low interaction honeypot with focus on capturing malware.
 
 This repository contains the necessary files to create a *dockerized* version of dionaea.
 
