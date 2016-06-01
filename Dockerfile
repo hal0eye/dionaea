@@ -1,11 +1,11 @@
 # dionaea dockerfile by MO
 #
-# VERSION 16.03.3
+# VERSION 16.10.0
 FROM ubuntu:14.04.4
 MAINTAINER MO
 
 # Setup apt
-RUN apt-get update -y 
+RUN apt-get update -y
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install dependencies and packages
@@ -17,7 +17,7 @@ RUN apt-get install -y software-properties-common && \
 # Setup user, groups and configs
 RUN addgroup --gid 2000 tpot && \
     adduser --system --no-create-home --shell /bin/bash --uid 2000 --disabled-password --disabled-login --gid 2000 tpot
-ADD dionaea.conf /etc/dionaea/
+ADD etc/* /opt/dionaea/etc/dionaea/
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Setup ewsposter
@@ -31,4 +31,3 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Start dionaea
 CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
-
