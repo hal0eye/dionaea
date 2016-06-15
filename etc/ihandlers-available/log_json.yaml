@@ -1,4 +1,6 @@
 - name: log_json
+  # Uncomment next line to flatten object lists to work with ELK
+  flat_data: true
   config:
     handlers:
       #- http://127.0.0.1:8080/
