@@ -1,6 +1,6 @@
 - name: http
   config:
-    root: "/data/dionaea/roots/www"
+    root: "/data/dionaea/wwwroot"
     ports:
       - 80
     ssl_ports:

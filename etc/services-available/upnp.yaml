@@ -1,6 +1,6 @@
 - name: upnp
   config:
-    root: /data/dionaea/roots/upnp
+    root: /data/dionaea/wwwroot
     # maximum size in kbytes of the request (32MB)
     max_request_size: 32768
     personality:
