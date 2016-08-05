@@ -1,0 +1,4 @@
+- name: fail2ban
+  config:
+    downloads: "/data/dionaea/downloads.f2b"
+    offers: "/data/dionaea/offers.f2b"
