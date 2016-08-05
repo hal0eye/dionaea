@@ -23,7 +23,7 @@ RUN apt-get update -y && \
     adduser --system --no-create-home --shell /bin/bash --uid 2000 --disabled-password --disabled-login --gid 2000 tpot && \
 
 # Clean up
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Supply configs
 ADD etc/ /opt/dionaea/etc/dionaea/
