@@ -13,12 +13,12 @@ RUN apt-get update -y && \
     add-apt-repository ppa:honeynet/nightly && \
     apt-get update -y && \
     apt-get upgrade -y && \
-    apt-get install -y supervisor dionaea && \
+    apt-get install -y supervisor dionaea \
 
 # Setup ewsposter
-    apt-get install -y python-lxml python-mysqldb python-requests git && \
+                    python-lxml python-mysqldb python-requests git python-openssl && \
     git clone https://github.com/rep/hpfeeds.git /opt/hpfeeds && cd /opt/hpfeeds && python setup.py install && \
-    git clone https://github.com/armedpot/ewsposter.git /opt/ewsposter && \
+    git clone https://github.com/vorband/ewsposter.git /opt/ewsposter && \
     mkdir -p /opt/ewsposter/spool /opt/ewsposter/log && \
 
 # Setup user and groups
