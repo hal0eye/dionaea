@@ -1,6 +1,6 @@
 # dionaea dockerfile by MO
 #
-# VERSION 16.10.0
+# VERSION 17.06
 FROM ubuntu:14.04.5
 MAINTAINER MO
 
@@ -13,13 +13,7 @@ RUN apt-get update -y && \
     add-apt-repository ppa:honeynet/nightly && \
     apt-get update -y && \
     apt-get upgrade -y && \
-    apt-get install -y supervisor dionaea \
-
-# Setup ewsposter
-                    python-lxml python-mysqldb python-requests git python-openssl && \
-    git clone https://github.com/rep/hpfeeds.git /opt/hpfeeds && cd /opt/hpfeeds && python setup.py install && \
-    git clone https://github.com/vorband/ewsposter.git /opt/ewsposter && \
-    mkdir -p /opt/ewsposter/spool /opt/ewsposter/log && \
+    apt-get install -y supervisor dionaea && \
 
 # Setup user and groups
     addgroup --gid 2000 tpot && \
@@ -32,7 +26,7 @@ RUN apt-get update -y && \
 
 # Clean up
     rm -rf /root/* && \
-    apt-get purge git software-properties-common -y && \
+    apt-get purge software-properties-common -y && \
     apt-get autoremove -y && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
