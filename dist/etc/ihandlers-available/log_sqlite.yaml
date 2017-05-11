@@ -1,3 +1,0 @@
-- name: log_sqlite
-  config:
-    file: /data/dionaea/log/dionaea.sqlite
