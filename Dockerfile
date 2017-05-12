@@ -7,6 +7,7 @@ ADD dist/ /root/dist/
 
 # Install dependencies and packages
 RUN apt-get update -y && \
+    apt-get upgrade -y && \
     apt-get install -y --no-install-recommends autoconf automake build-essential check cython3 git libcurl4-openssl-dev \
                        libemu-dev libev-dev libglib2.0-dev libloudmouth1-dev libnetfilter-queue-dev \
                        libpcap-dev libssl-dev libtool libudns-dev python3-dev \
